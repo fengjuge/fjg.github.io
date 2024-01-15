@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>请开始你的表演！</title>
+        <meta charset="utf-8">
+        
+        <link rel="stylesheet" type="text/css" href="styles/cube.css">
+        <link rel="stylesheet" type="text/css" href="styles/base.css">
+
+        <style>
+            .button {
+                position:absolute;
+                top:0;
+                left:0;
+                margin-top:2px;
+            }
+            .button input{
+                background-color:#333;
+                padding:5px;
+                border:none;
+                color:#fff;
+            }
+        </style>
+    </head>
+	
+    <body class="graydient" >
+        <div id="container" ></div>
+        <div id="fail">
+            <h1>错误</h1>
+            <h2>？</h2>
+        </div>
+        <div class="button" style="display: none;">
+            <input type="button" value=" 打 乱 " id="shuffle" />
+            <input type="button" value=" ↶ " id="undo" />
+            <input type="button" value=" ↷ " id="redo" />
+        </div>
+
+        <script>
+            function stop(){
+            return false;
+            }
+            document.oncontextmenu=stop;
+        </script>
+
+        <script charset="utf-8" src="build/cuber.js"></script>
+        <script charset="utf-8" src="build/cuber.min.js"></script>
+        <script charset="utf-8" src="build/jquery.js"></script>
+        <script charset="utf-8" src="build/main.js"></script>
+        <script>
+            $(function () {
+
+                $('#shuffle').click(function () {
+                    console.log('shuffle');
+                    var x = window.cube.shuffle();
+                    console.log(x);
+                });
+
+                $('#undo').click(function () {
+                    console.log('undo');
+                    var x = window.cube.undo();
+                    console.log(x);
+                });
+
+                $('#redo').click(function () {
+                    console.log('redo');
+                    var x = window.cube.redo();
+                    console.log(x);
+                });
+            });
+        </script>
+    </body>
+</html>
